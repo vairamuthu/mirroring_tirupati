@@ -1,0 +1,31 @@
+.container
+  .row
+    .col-xs-6.col-sm-4.col-md-3.col-lg-2.col-lg-offset-9
+      = link_to new_admin_post_url, class: "btn btn-primary" do
+        %span.glyphicon.glyphicon-plus
+          = t('.new_post')
+  .row
+    .col-sm-5.col-sm-offset-2.col-md-8.col-md-offset-2
+      %table{class: 'table table-striped table-hover table-bordered'}
+        %thead
+          %tr
+            %th= t('.header.title')
+            %th= t('.header.city')
+            %th= t('.header.image')
+            %th &nbsp;
+        %tbody
+          - collection.each do |r|
+            %tr
+              %td= r.title
+              %td= r.city.name
+              %td= image_tag r.photo.url(:thumb)
+              %td
+                = link_to edit_admin_post_url(r), class: "btn btn-success btn-sm" do
+                  %span.glyphicon.glyphicon-eye-open
+                    = t('.show')
+                = link_to edit_admin_post_url(r), class: "btn btn-warning btn-sm" do
+                  %span.glyphicon.glyphicon-edit
+                    = t('.edit')
+                = link_to new_admin_post_url, class: "btn btn-danger btn-sm" do
+                  %span.glyphicon.glyphicon-trash
+                    = t('.delete')    

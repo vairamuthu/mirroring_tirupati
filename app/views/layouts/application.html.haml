@@ -1,0 +1,159 @@
+%html{lang: "en"}
+  %head
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true 
+    = csrf_meta_tags     
+  %body
+    %header.navbar.navbar-inverse.navbar-fixed-top.wet-asphalt{role: "banner"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{href: "#"}
+            = image_tag ('logo.png')
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li.active
+              %a{href: "index.html"} Home
+            %li
+              = link_to "Inspiring Tirupathi", inspirings_path
+            %li
+              %a{href: "guiding_tirupati.html"} GuidingTirumala
+            %li
+              %a{href: "portfolio.html"} Bazaar
+            %li
+              %a{href: "#"} Housing
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                Classifieds
+                %i.icon-angle-down
+              %ul.dropdown-menu
+                %li
+                  %a{href: "career.html"} Career
+                %li
+                  %a{href: "blog-item.html"} Blog Single
+                %li
+                  %a{href: "pricing.html"} Pricing
+                %li
+                  %a{href: "404.html"} 404
+                %li
+                  %a{href: "registration.html"} Registration
+                %li.divider
+                %li
+                  %a{href: "privacy.html"} Privacy Policy
+                %li
+                  %a{href: "terms.html"} Terms of Use
+            %li
+              %a{href: "blog.html"} Blog
+            %li
+              %a{href: "contact-us.html"} Contact
+    //header
+    = yield
+    
+    %section#bottom.wet-asphalt
+      .container
+        .row
+          .col-md-3.col-sm-6
+            %h4 About Us
+            %p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
+            %p Pellentesque habitant morbi tristique senectus.
+          / /.col-md-3
+          .col-md-3.col-sm-6
+            %h4 Company
+            %div
+              %ul.arrow
+                %li
+                  %a{href: "#"} Company Overview
+                %li
+                  %a{href: "#"} Meet The Team
+                %li
+                  %a{href: "#"} Our Awesome Partners
+                %li
+                  %a{href: "#"} Our Services
+                %li
+                  %a{href: "#"} Frequently Asked Questions
+                %li
+                  %a{href: "#"} Conatct Us
+                %li
+                  %a{href: "#"} Privacy Policy
+                %li
+                  %a{href: "#"} Terms of Use
+                %li
+                  %a{href: "#"} Copyright
+          / /.col-md-3
+          .col-md-3.col-sm-6
+            %h4 Latest Blog
+            %div
+              .media
+                .pull-left
+                  %img{alt: "", src: "assets/blog/thumb1.jpg"}/
+                .media-body
+                  %span.media-heading
+                    %a{href: "#"} Pellentesque habitant morbi tristique senectus
+                  %small.muted Posted 17 Aug 2013
+              .media
+                .pull-left
+                  %img{alt: "", src: "assets/blog/thumb2.jpg"}/
+                .media-body
+                  %span.media-heading
+                    %a{href: "#"} Pellentesque habitant morbi tristique senectus
+                  %small.muted Posted 13 Sep 2013
+              .media
+                .pull-left
+                  %img{alt: "", src: "assets/blog/thumb3.jpg"}/
+                .media-body
+                  %span.media-heading
+                    %a{href: "#"} Pellentesque habitant morbi tristique senectus
+                  %small.muted Posted 11 Jul 2013
+          / /.col-md-3
+          .col-md-3.col-sm-6
+            %h4 Address
+            %address
+              %strong Twitter, Inc.
+              %br/
+              795 Folsom Ave, Suite 600
+              %br/
+              San Francisco, CA 94107
+              %br/
+              %abbr{title: "Phone"} P:
+              (123) 456-7890
+            %h4 Newsletter
+            %form{role: "form"}
+              .input-group
+                %input.form-control{autocomplete: "off", placeholder: "Enter your email", type: "text"}/
+                %span.input-group-btn
+                  %button.btn.btn-danger{type: "button"} Go!
+          / /.col-md-3
+    / /#bottom
+    %footer#footer.midnight-blue
+      .container
+        .row
+          .col-sm-6
+            \© 2013
+            = succeed "." do
+              %a{href: "http://shapebootstrap.net/", target: "_blank", title: "Free Twitter Bootstrap WordPress Themes and HTML templates"} ShapeBootstrap
+          .col-sm-6
+            %ul.pull-right
+              %li
+                %a{href: "#"} Home
+              %li
+                %a{href: "#"} About Us
+              %li
+                %a{href: "#"} Faq
+              %li
+                %a{href: "#"} Contact Us
+              %li
+                %a#gototop.gototop{href: "#"}
+                  %i.icon-chevron-up
+              / #gototop
+    / /#footer
+    %script{src: "jquery.js"}
+    %script{src: "bootstrap.min.js"}
+    %script{src: "jquery.prettyPhoto.js"}
+    %script{src: "main.js"}
+            
+
+

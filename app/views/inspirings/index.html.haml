@@ -1,0 +1,51 @@
+.row
+  .col-md-8
+    #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+      %ol.carousel-indicators
+        %li.active{"data-slide-to" => "0", "data-target" => "#carousel-demo"}
+        %li{"data-slide-to" => "1", "data-target" => "#carousel-demo"}
+        %li{"data-slide-to" => "2", "data-target" => "#carousel-demo"}
+    .carousel-inner
+      .item.active
+        = image_tag @inspirings[0].photo.url(:medium)
+        .carousel-caption
+          %h3 5 US Dollar
+      .item
+        = image_tag @inspirings[1].photo.url(:medium)
+        .carousel-caption
+          %h3 100 US Dollar
+      .item
+        = image_tag @inspirings[2].photo.url(:medium)
+        .carousel-caption
+          %h3 50 US Dollar
+    %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-demo"}
+      %span.glyphicon.glyphicon-chevron-left
+    %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}
+      %span.glyphicon.glyphicon-chevron-right
+    
+  .col-md-4
+    %h4 Latest Blog
+    %div
+      .media
+        .pull-left
+          = image_tag @inspirings[0].photo.url(:thumb)
+        .media-body
+          %span.media-heading
+            %a{:href => "#"} Pellentesque habitant morbi tristique senectus
+          %small.muted Posted 17 Aug 2013
+      .media
+        .pull-left
+          = image_tag @inspirings[1].photo.url(:thumb)
+        .media-body
+          %span.media-heading
+            %a{:href => "#"} Pellentesque habitant morbi tristique senectus
+          %small.muted Posted 17 Aug 2013
+      .media
+        .pull-left
+          = image_tag @inspirings[2].photo.url(:thumb)
+        .media-body
+          %span.media-heading
+            %a{:href => "#"} Pellentesque habitant morbi tristique senectus
+          %small.muted Posted 17 Aug 2013          
+
+
