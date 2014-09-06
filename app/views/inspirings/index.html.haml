@@ -1,51 +1,45 @@
 .row
-  .col-md-8
-    #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+  .col-md-6.col-sm-offset-2#main-slider.no-margin
+    .carousel.slide.wet-asphalt
       %ol.carousel-indicators
-        %li.active{"data-slide-to" => "0", "data-target" => "#carousel-demo"}
-        %li{"data-slide-to" => "1", "data-target" => "#carousel-demo"}
-        %li{"data-slide-to" => "2", "data-target" => "#carousel-demo"}
-    .carousel-inner
-      .item.active
-        = image_tag @inspirings[0].photo.url(:medium)
-        .carousel-caption
-          %h3 5 US Dollar
-      .item
-        = image_tag @inspirings[1].photo.url(:medium)
-        .carousel-caption
-          %h3 100 US Dollar
-      .item
-        = image_tag @inspirings[2].photo.url(:medium)
-        .carousel-caption
-          %h3 50 US Dollar
-    %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-demo"}
-      %span.glyphicon.glyphicon-chevron-left
-    %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}
-      %span.glyphicon.glyphicon-chevron-right
-    
-  .col-md-4
-    %h4 Latest Blog
-    %div
-      .media
-        .pull-left
-          = image_tag @inspirings[0].photo.url(:thumb)
-        .media-body
-          %span.media-heading
-            %a{:href => "#"} Pellentesque habitant morbi tristique senectus
-          %small.muted Posted 17 Aug 2013
-      .media
-        .pull-left
-          = image_tag @inspirings[1].photo.url(:thumb)
-        .media-body
-          %span.media-heading
-            %a{:href => "#"} Pellentesque habitant morbi tristique senectus
-          %small.muted Posted 17 Aug 2013
-      .media
-        .pull-left
-          = image_tag @inspirings[2].photo.url(:thumb)
-        .media-body
-          %span.media-heading
-            %a{:href => "#"} Pellentesque habitant morbi tristique senectus
-          %small.muted Posted 17 Aug 2013          
-
-
+        %li.active{"data-slide-to" => "0", "data-target" => "#main-slider"}
+        %li{"data-slide-to"        => "1", "data-target" => "#main-slider"}
+        %li{"data-slide-to"        => "2", "data-target" => "#main-slider"}
+      .carousel-inner
+        .item.active{style: "background-image: url('assets/slider/bg1.jpg')"}
+          .container
+            .row
+              .col-sm-12
+                .carousel-content.centered
+                  %h2.animation.animated-item-1 Mirroring Tirupati
+                  %p.animation.animated-item-2 We are here to server your local needs.
+        / /.item
+        .item{style: "background-image: url(assets/slider/bg2.jpg)"}
+          .container
+            .row
+              .col-sm-12
+                .carousel-content.center.centered
+                  %h2.boxed.animation.animated-item-1 Sell or Advertise anything here
+                  %p.boxed.animation.animated-item-2 MirroringTirupati is a free local classifieds website where you can post free advertisements related a business, product and service offered in and around Tirupati. You can post free ads to buy, sell, rent or for charity in Tirupati. Find used cars, rent or buy apartments, find a flatmate or even start a tiffin or catering service, hobby or dance class or a fashion boutique in your locality and much more..
+                  %br/
+                  %a.btn.btn-md.animation.animated-item-3{href: "#"} Learn More
+        / /.item
+        .item{style: "background-image: url(assets/slider/bg3.jpg)"}
+          .container
+            .row
+              .col-sm-6
+                .carousel-content.centered
+                  %h2.animation.animated-item-1 Powerful and Responsive place to hunt your dream house
+                  %p.animation.animated-item-2 Armchair house hunts have never been simpler. Imagine all the things you can do with your extra time! Death by chocolate at the corner house? Choose your service to start.
+                  %a.btn.btn-md.animation.animated-item-3{href: "#"} Learn More
+              .col-sm-6.hidden-xs.animation.animated-item-4
+                .centered
+                  .embed-container
+        / /.item
+      / /.carousel-inner
+    / /.carousel
+    %a.prev.hidden-xs{"data-slide" => "prev", href: "#main-slider"}
+      %i.icon-angle-left
+    %a.next.hidden-xs{"data-slide" => "next", href: "#main-slider"}
+      %i.icon-angle-right
+  / /#main-slider
