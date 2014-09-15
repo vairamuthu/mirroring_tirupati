@@ -1,8 +1,13 @@
 = bootstrap_form_for [:admin, resource], layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10" do |f|
-  =f.text_field :title, placeholder: "Title"
-  =f.text_area :content, placeholder: "content", class: 'wysihtml5'
-  =f.select :city_id, City.all.map{ |c| [c.name, c.id ] }
-  =f.file_field :photo 
+  = f.text_field :title, placeholder: "Title"
+  = f.text_area :content, placeholder: "content", class: 'wysihtml5'
+  = f.select :city_id, City.all.map{ |c| [c.name, c.id ] }
+  = f.file_field :photo
+  = f.date_select :publish_on
+  .row
+    .col-sm-10.col-sm-offset-2
+      = f.check_box :is_publish
+    
   .row
     .col-sm-5.col-sm-offset-2.col-md-6.col-md-offset-2   
       = f.button :submit, class: 'btn btn-primary'

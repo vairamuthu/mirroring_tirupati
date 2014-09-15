@@ -3,4 +3,8 @@ class Post < ActiveRecord::Base
   :path => ":rails_root/public/assets/posts/:id/:style/:basename.:extension"
   validates_attachment_content_type :photo, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/
   belongs_to :city
+  
+  def posted_on
+    publish_on || created_at
+  end
 end
