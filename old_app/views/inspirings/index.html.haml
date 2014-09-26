@@ -1,0 +1,66 @@
+.row
+  .col-md-8.col-sm-offset-1#main-slider
+    .carousel.slide.wet-asphalt
+      %ol.carousel-indicators
+        - @inspirings.each_with_index do |index,ins|
+          - if ins == @inspirings.first
+            %li.active{"data-slide-to" => "#{index}", "data-target" => "#main-slider"}
+          - else    
+            %li{"data-slide-to"        => "#{index}", "data-target" => "#main-slider"} 
+             
+        //%li.active{"data-slide-to" => "0", "data-target" => "#main-slider"}
+        //%li{"data-slide-to"        => "1", "data-target" => "#main-slider"}
+        //%li{"data-slide-to"        => "2", "data-target" => "#main-slider"}
+      .carousel-inner
+        - @inspirings.each do |ins|
+          - if ins == @inspirings.first
+            .item.active{style: "background-image: url(#{ins.photo.url})"}
+          - else 
+            .item{style: "background-image: url(#{ins.photo.url})"}
+              .container
+                .row
+                  .col-sm-12
+                    .carousel-content.centered
+                      %h2.animation.animated-item-4
+                        = ins.title
+         
+    %a.prev.hidden-xs{"data-slide" => "prev", href: "#main-slider"}
+      %span.glyphicon.glyphicon-chevron-left
+    %a.next.hidden-xs{"data-slide" => "next", href: "#main-slider"}
+      %span.glyphicon.glyphicon-chevron-right
+  
+.row
+  .col-md-8.col-sm-offset-1
+    .blog-lists-blog.clearfix
+      %h2.blogpost-wrapper-title Recent Posts 
+      .blogposts-wrapper.clearfix
+        %ul
+          %li.full-left.clearfix
+            .magbig-thumb
+              %a.post-thumbnail{:href => "http://yourstory.com/2014/09/oxigen-launch-ekyc/", :title => "Oxigen becomes first non-bank body to launch eKYC service with NPCI for financial inclusion"}
+                %img{:alt => "Oxigen becomes first non-bank body to launch eKYC service with NPCI for financial inclusion", :src => "http://cdn1.yourstory.com/wp-content/uploads/2014/09/yourstory_OxigenlauncheKYC-280x140.jpg"}/
+            .list-block.clearfix
+              %h3
+                %a{:href => "http://yourstory.com/2014/09/oxigen-launch-ekyc/", :title => "Oxigen becomes first non-bank body to launch eKYC service with NPCI for financial inclusion"} Oxigen becomes first non-bank body to launch eKYC service with NPCI for financial inclusion
+              .post-meta-blog
+                %span.meta_author
+                  %a.url.fn{:href => "http://yourstory.com/author/jaivardhan/", :rel => "author", :title => "Posts by Jai Vardhan"} Jai Vardhan
+                %span.meta_date |  September 17, 2014 at 10:00 pm
+              .maga-excerpt.clearfix
+                %p Payment solution provider Oxigen has launched eKYC services to help unbanked masses of the country make use of Oxigen Mobile Wallet Service without the hassle of paperwork/documentation..
+                %a.tpcrn-read-more{:href => "http://yourstory.com/2014/09/oxigen-launch-ekyc/", :title => "Oxigen becomes first non-bank body to launch eKYC service with NPCI for financial inclusion"} Read More
+          %hr
+  / /#main-slider
+  .col-md-3
+    %h4 Top 5
+    %div
+      - @inspirings.each do |ins|
+        .media
+          .pull-left
+            %img{alt: "", src: "#{ins.photo.url(:thumb)}"}/
+          .media-body
+            %span.media-heading
+              %a{href: "#"}=  ins.title
+            %small.muted Posted "#{ins.posted_on.strftime('%d %b %Y')}"
+
+      
