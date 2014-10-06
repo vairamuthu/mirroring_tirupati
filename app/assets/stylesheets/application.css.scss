@@ -14,6 +14,8 @@
  @import "bootstrap";
  *= require_tree .
  *= require_self
+ *= require font-awesome
+ *= require summernote
  */
 @font-face {
   font-family: 'Glyphicons Halflings';

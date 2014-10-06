@@ -1,0 +1,65 @@
+.row
+  .col-md-8.col-sm-offset-1
+    .blog
+      .blog-item
+        %img.img-responsive.img-blog{:alt => "", :src => @post.photo.url, :width => "100%"}/
+        .blog-content
+          %h3= @post.title
+          .entry-meta
+            %span
+              %i.icon-calendar
+                = @post.created_at.strftime('%B %d, %Y')
+            %span
+              %i.icon-comment
+              %a{:href => "blog-item.html#comments"} "#{@post.comments.length}" Comments
+          %p Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+          %p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+          %p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+          %hr/
+          
+          #comments
+            #comments-list
+              %h3 "#{@post.comments.length}" Comments
+              - @post.comments.each do |comment|
+                .media
+                  .pull-left
+                    %img.avatar.img-circle{:alt => "", :src => "/assets/blog/avatar3.png"}/
+                  .media-body
+                    .well
+                      .media-heading
+                        %strong>= comment.name
+                        \ 
+                        %small= comment.created_at.strftime('%B %d, %Y')
+                      %p= comment.content 
+                    
+            / /#comments-list
+            #comment-form
+              %h3 Leave a comment
+              = form_tag({:action => "comment", :id => @post}, {:class => "form-horizontal"}) do
+                .form-group
+                  .col-sm-6
+                    = text_field_tag :name, nil, {:class => "form-control", :placeholder => "Name"}
+                  .col-sm-6
+                    = text_field_tag :email, nil, {:class => "form-control", :placeholder => "Email", :type=>"email"}
+                .form-group
+                  .col-sm-12
+                    = text_area_tag :comment, nil, {:class => "form-control", :placeholder => "Comment", :rows=>8}
+                %button.btn.btn-danger.btn-lg{:type => "submit"} Submit Comment
+            / /#comment-form
+          / /#comments
+      / /.blog-item 
+             
+  / /#main-slider
+  .col-md-3
+    %h2.blogpost-wrapper-title Top Posts
+    %div
+      - @top_posts.each do |ins|
+        .media
+          .pull-left
+            %img{alt: "", src: "#{ins.photo.url(:thumb)}"}/
+          .media-body
+            %span.media-heading
+              %a{href: "#"}=  ins.title
+            %small.muted Posted "#{ins.posted_on.strftime('%d %b %Y')}"
+
+      

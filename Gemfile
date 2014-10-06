@@ -27,7 +27,8 @@ gem 'inherited_resources'
 gem 'autoprefixer-rails'
 gem 'bootstrap_form'
 gem "paperclip", "~> 4.1"
-gem 'bootstrap-wysihtml5-rails', :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
+gem 'font-awesome-rails'
+gem 'summernote-rails'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 

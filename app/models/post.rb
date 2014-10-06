@@ -4,12 +4,17 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/
   belongs_to :city
   
+  has_many :comments
+  
   scope :recent, -> { where(is_publish: true).order(created_at: :desc) }
-  scope :top, -> { where(is_publish: true).order(views: :asc)}
+  scope :top, -> { where(is_publish: true).order(views: :desc)}
   
   def posted_on
     publish_on || created_at
   end
   
+  def increase_view
+    update_attributes(:views => (self.views + 1))
+  end
   
 end

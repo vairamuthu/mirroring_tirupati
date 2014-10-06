@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'welcome#home'
-   resources :inspirings
+   resources :inspirings do
+     member do
+       post :comment
+     end
+   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -53,7 +57,6 @@ Rails.application.routes.draw do
      namespace :admin do
        resources :countries
        resources :cities
-       resources :posts 
-      
+       resources :posts    
    end
 end
