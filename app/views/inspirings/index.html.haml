@@ -46,9 +46,9 @@
                     %a{:href => "/inspirings/#{ins.id}", :title => "#{ins.title}"} #{ins.title}                     
                   .post-meta-blog
                     %span.meta_author
-                    %span.meta_date   September 17, 2014 at 10:00 pm
+                    %span.meta_date= ins.created_at.strftime('%B %d, %Y')
                   .maga-excerpt.clearfix
-                    %p= ins.content 
+                    %p= ins.short_content 
                     %a.btn.btn-default{:href => "/inspirings/#{ins.id}"}
                       Read More
                       %i.icon-angle-right
